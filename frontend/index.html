@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Gatos Persas</title>
+  <style>
+    /* Estilos básicos para mejorar la apariencia */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .gato {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blog de Gatos Persas</h1>
+  <div id="gatos-container"></div>
+
+  <script>
+    // Llamar al backend para obtener los gatos
+    fetch('http://localhost:4000/gatos') // Cambia "gatos" por "posts" si es la tabla que estás usando
+      .then(response => response.json())
+      .then(data => {
+        const gatosContainer = document.getElementById('gatos-container');
+        data.forEach(gato => {
+          // Crear un nuevo div por cada gato
+          const gatoElement = document.createElement('div');
+          gatoElement.classList.add('gato');
+          gatoElement.innerHTML = `<h2>${gato.nombre}</h2><p>${gato.descripcion}</p><img src="${gato.imagen_url}" alt="${gato.nombre}" />`;
+          gatosContainer.appendChild(gatoElement);
+        });
+      });
+  </script>
+</body>
+</html>
