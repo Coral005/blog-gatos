@@ -1,28 +1,41 @@
-// Importar las dependencias necesarias
-const express = require('express');
-const cors = require('cors');
-const connection = require('./server/models/db'); // Ruta a tu archivo db.js para la conexión a la base de datos
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import open from 'open';
+import connection from './server/models/db.js'; // Asegúrate de que tu archivo db.js esté configurado correctamente
 
 const app = express();
 
-// Habilitar CORS para permitir solicitudes desde el frontend
+// Habilitar CORS
 app.use(cors());
 
-// Permitir el uso de JSON en las solicitudes
+// Permitir el uso de JSON para solicitudes POST o PUT
 app.use(express.json());
 
-// Ruta para obtener la lista de gatos desde la base de datos
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(path.join(process.cwd(), 'public')));
+
+// Ruta principal para servir el archivo HTML
+app.get('/', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+});
+
+// Ruta dinámica para obtener datos desde la base de datos (ejemplo: /posts)
 app.get('/posts', (req, res) => {
-  const query = 'SELECT * FROM posts'; // Consulta SQL para obtener todos los gatos
+  const query = 'SELECT * FROM posts'; // Cambia "posts" por tu tabla en la base de datos
   connection.query(query, (err, results) => {
     if (err) {
+      console.error('Error al ejecutar la consulta:', err);
       return res.status(500).json({ error: 'Error al consultar la base de datos' });
     }
-    res.json(results); // Enviar los resultados en formato JSON
+    res.json(results); // Devuelve los resultados como JSON
   });
 });
 
-// Iniciar el servidor en el puerto 3000
-app.listen(4000, () => {
-  console.log('Servidor backend corriendo en el puerto 4000');
+// Iniciar el servidor en el puerto 4000
+const PORT = 4000;
+app.listen(PORT, async () => {
+  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
+  await open(`http://localhost:${PORT}`); // Abre el navegador automáticamente
 });
+
