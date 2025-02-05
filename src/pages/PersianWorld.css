@@ -1,0 +1,25 @@
+/* Estilo para el contenedor principal */
+.persian-world-content {
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Posiciona hacia la parte superior */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    background-color: transparent; /* Si necesitas un fondo transparente */
+    padding-top: 10%; /* Ajusta la altura hacia abajo ligeramente */
+}
+  
+/* Estilo para el título */
+.persian-world-title {
+    font-size: 3rem; /* Tamaño grande para destacar */
+    color: white; /* Color del texto en blanco */
+    margin: 0; /* Elimina márgenes extras */
+    font-family: 'Arial', sans-serif; /* Fuente estándar */
+}
+  
+/* Si `background-landing` cambia el fondo */
+body.background-landing {
+    background-color: #6200ea; /* Cambia el fondo del cuerpo a púrpura */
+    color: white; /* Asegura que el texto del cuerpo sea blanco */
+    margin: 0; /* Elimina márgenes por defecto del cuerpo */
+}

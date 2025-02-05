@@ -1,0 +1,114 @@
+.questions-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.question-item {
+  margin-bottom: 15px;
+  background-color: #f0f0f5;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+}
+
+.question:hover {
+  background-color: #3700b3;
+}
+
+.answer {
+  padding: 10px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 1rem;
+  height: 0; /* Inicialmente la respuesta está colapsada */
+  overflow: hidden; /* Oculta el contenido que no está visible */
+  transition: height 0.3s ease-out; /* Transición suave cuando se despliega o colapsa */
+}
+
+/* Cuando la respuesta está abierta, se ajusta la altura */
+.answer.open {
+  height: auto; /* La altura se ajusta automáticamente */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Opcional: Si quieres un estilo para la respuesta */
+.answer p {
+  margin: 0;
+  color: #333;
+}
+
+.add-question-section {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 2px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-question-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.add-question-section input,
+.add-question-section textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.add-question-section input:focus,
+.add-question-section textarea:focus {
+  border-color: #6200ea;
+  outline: none;
+}
+
+.add-question-section textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-question-section button {
+  padding: 12px 20px;
+  background-color: #6200ea;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-question-section button:hover {
+  background-color: #3700b3;
+}
+
+.add-question-section button:active {
+  background-color: #2c0059;
+}
