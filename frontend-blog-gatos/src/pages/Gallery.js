@@ -1,13 +1,5 @@
-import React, { useState } from 'react';  // Importa 'useState' aquí
+import React, { useState } from 'react'; // Importa 'useState' aquí
 import './Gallery.css';  // Importar el archivo CSS de la galería
-
-// Importar las imágenes desde la carpeta src/images
-import photo1 from '../images/1733323378311.jpg';
-import photo2 from '../images/1733323378326.jpg';
-import photo3 from '../images/1733323378440.jpg';
-import photo4 from '../images/1733323378341.jpg';  // Nueva imagen
-import photo5 from '../images/1733323378406.jpg';  
-import photo6 from '../images/1733323378494.jpg';  // Nueva imagen
 
 function Gallery() {
   // Estado para controlar la imagen o video seleccionado y si el modal está abierto o cerrado
@@ -30,8 +22,8 @@ function Gallery() {
       {/* Introducción de texto */}
       <div className="gallery-introduction">
         <p>
-          ¡Bienvenidos a la galeria de gatos persas!<p>
-        </p> Aquí podrás ver imágenes y videos muy adorables de nuestros gatos.
+          ¡Bienvenidos a la galería de gatos persas!<br />
+          Aquí podrás ver imágenes y videos muy adorables de nuestros gatos.
           Disfruta viendo cómo se relajan, juegan y se divierten.
           Haz clic en las imágenes o videos para verlos en detalle.
         </p>
@@ -40,42 +32,42 @@ function Gallery() {
       <div className="gallery">
         {/* Imágenes de la galería */}
         <img
-          src={photo1}
+          src="/images/1733323378311.jpg"
           alt="Gato Persa 1"
           className="gallery-image"
-          onClick={() => openModal(photo1)} // Al hacer clic, abre el modal con la imagen
+          onClick={() => openModal('/images/1733323378311.jpg')} // Al hacer clic, abre el modal con la imagen
         />
         <img
-          src={photo2}
+          src="/images/1733323378326.jpg"
           alt="Gato Persa 2"
           className="gallery-image"
-          onClick={() => openModal(photo2)}
+          onClick={() => openModal('/images/1733323378326.jpg')}
         />
         <img
-          src={photo3}
+          src="/images/1733323378440.jpg"
           alt="Gato Persa 3"
           className="gallery-image"
-          onClick={() => openModal(photo3)}
+          onClick={() => openModal('/images/1733323378440.jpg')}
         />
         <img
-          src={photo4}
+          src="/images/1733323378341.jpg"
           alt="Gato Persa 4"
           className="gallery-image"
-          onClick={() => openModal(photo4)}
+          onClick={() => openModal('/images/1733323378341.jpg')}
         />
         <img
-          src={photo5}
+          src="/images/1733323378406.jpg"
           alt="Gato Persa 5"
           className="gallery-image"
-          onClick={() => openModal(photo5)}
+          onClick={() => openModal('/images/1733323378406.jpg')}
         />
         <img
-          src={photo6}
+          src="/images/1733323378494.jpg"
           alt="Gato Persa 6"
           className="gallery-image"
-          onClick={() => openModal(photo6)}
+          onClick={() => openModal('/images/1733323378494.jpg')}
         />
-        
+
         {/* Videos de la galería */}
         <video className="gallery-video" controls onClick={() => openModal('/videos/VID-20241020-WA0020.mp4')}>
           <source src="/videos/VID-20241020-WA0020.mp4" type="video/mp4" />

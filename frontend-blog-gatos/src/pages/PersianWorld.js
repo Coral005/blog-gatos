@@ -1,23 +1,19 @@
-import React, { useEffect } from 'react';
-import './PersianWorld.css';
-import '../App.css'; // Asegúrate de que la ruta sea correcta
+import React from 'react';
+import backgroundImage from '../assets/images/coral.jpeg'; // Asegúrate de que la ruta es correcta
+import '../App.css';  // Importa los estilos globales
 
-function PersianWorld() {
-  useEffect(() => {
-    // Aplica la clase `background-landing` solo al entrar en Persian World
-    document.body.classList.add('background-landing');
-
-    // Limpieza: Quita la clase `background-landing` al salir de Persian World
-    return () => {
-      document.body.classList.remove('background-landing');
-    };
-  }, []);
-
+const PersianWorld = () => {
   return (
-    <div className="persian-world-content">
-      <h1 className="persian-world-title">Bienvenidos a Persian World</h1>
+    <div
+      className="background-landing"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className="content">
+        <h1>Bienvenido a Persian World</h1>
+        <p>Explora el mundo de los gatos persas con nosotros.</p>
+      </div>
     </div>
   );
-}
+};
 
 export default PersianWorld;
