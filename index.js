@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -33,9 +35,8 @@ app.get('/posts', (req, res) => {
 });
 
 // Iniciar el servidor en el puerto 4000
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, async () => {
   console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
-  await open(`http://localhost:${PORT}`); // Abre el navegador automáticamente
 });
 

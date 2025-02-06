@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
+import db from '../models/db.js';  // Asegúrate de agregar la extensión .js
 const router = express.Router();
-const db = require('../models/db');
 
 // Obtener todas las publicaciones del blog
 router.get('/posts', (req, res) => {
@@ -15,4 +15,4 @@ router.get('/posts', (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;  // Cambio aquí
