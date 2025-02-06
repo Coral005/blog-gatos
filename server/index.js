@@ -1,24 +1,41 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import cors from 'cors';
-import connection from './models/db.js'; // Asegúrate de que la conexión a la base de datos esté bien configurada
+import path from 'path';
+import open from 'open';
+import connection from './server/models/db.js'; // ✅ Solo una vez
 
 const app = express();
-const PORT = process.env.PORT || 4000;
 
-// Middleware
+// Habilitar CORS
 app.use(cors());
+
+// Permitir el uso de JSON en solicitudes
 app.use(express.json());
 
-// Ruta básica para verificar que el servidor está funcionando
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(path.join(process.cwd(), 'public')));
+
+// Ruta principal
 app.get('/', (req, res) => {
-  res.send('¡Backend funcionando correctamente! 🚀');
+  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
 
-// Importar rutas (asegúrate de que el archivo posts.js existe en /routes)
-import postsRoutes from './routes/posts.js';
-app.use('/posts', postsRoutes);
+// Ruta para obtener datos de la base de datos
+app.get('/posts', (req, res) => {
+  const query = 'SELECT * FROM posts';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('❌ Error al ejecutar la consulta:', err);
+      return res.status(500).json({ error: 'Error al consultar la base de datos' });
+    }
+    res.json(results);
+  });
+});
 
 // Iniciar el servidor
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`✅ Servidor backend corriendo en http://localhost:${PORT}`);
 });
