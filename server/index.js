@@ -4,7 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import open from 'open';
-import connection from './server/models/db.js'; // ✅ Solo una vez
+import connection from './models/db.js' // ✅ Solo una vez index de server
 
 const app = express();
 
