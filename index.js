@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import connection from './models/db.js'; // Asegúrate de que la conexión a la base de datos esté bien configurada
+import connection from '../models/db.js'; // Asegúrate de que la conexión a la base de datos esté bien configurada
 
 const app = express();
 const PORT = process.env.PORT || 4000;
