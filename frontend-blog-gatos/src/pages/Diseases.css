@@ -1,0 +1,132 @@
+/* 🎨 Estructura general */
+.diseases-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #faf8ff 0%, #f3f0ff 100%);
+  color: #333;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* 🌈 HEADER */
+.diseases-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.diseases-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.diseases-header .overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.diseases-header h1 {
+  font-size: 2.6rem;
+  color: #ffe082;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.diseases-header p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* 💜 CONTENIDO PRINCIPAL */
+.diseases-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 📦 TARJETAS DE ENFERMEDADES */
+.disease-card {
+  background: #fff;
+  border-left: 6px solid #6a11cb;
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.disease-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(37, 117, 252, 0.25);
+}
+
+.disease-card h2 {
+  color: #6a11cb;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.disease-card p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 🔹 Listas de síntomas */
+.disease-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.disease-card ul li {
+  background: #f9f9ff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+}
+
+.disease-card ul li strong {
+  color: #6a11cb;
+}
+
+/* 🐾 FOOTER */
+.diseases-footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+  margin-top: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .diseases-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .disease-card {
+    padding: 20px;
+  }
+
+  .disease-card h2 {
+    font-size: 1.4rem;
+  }
+}

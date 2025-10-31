@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';  // Asegúrate de que useEffect esté importado
-import './Home.css';  // Importar el archivo CSS de Home
+import React, { useEffect } from 'react';
+import './Home.css';
 
 function Home() {
   useEffect(() => {
-    // Quitar background-landing y agregar background-home en la página Home
     document.body.classList.remove('background-landing');
     document.body.classList.add('background-home');
-    
-    // Limpiar al salir de la página Home
+
     return () => {
       document.body.classList.remove('background-home');
     };
@@ -15,29 +13,42 @@ function Home() {
 
   return (
     <div className="home-page">
-      <h1>Bienvenidos a Persian World</h1>
-      <p>El lugar para aprender todo sobre los gatos persas. Explora cuidados, alimentación, características, y mucho más.</p>
-      <p>Bienvenidos a Gatos Persas Dinámicos</p>
-      <p>En esta página, descubrirás el maravilloso mundo de los gatos persas.</p>
+      {/* 🐾 Header con fondo visual */}
+      <header className="home-header">
+        <div className="overlay">
+          <h1>🐱 Bienvenidos a <span>Persian World</span></h1>
+          <p>
+            Tu rincón felino para conocer y cuidar mejor a los gatos persas.  
+            Aprende sobre su carácter, cuidados, alimentación y curiosidades.
+          </p>
+        </div>
+      </header>
 
-      <p>Seguramente os preguntaréis, ¿Qué encontraré en este blog?</p>
-      <p>En este blog, nos apasionan estos felinos y todo lo que les rodea. A continuación te explico qué veremos en las siguientes páginas:</p>
+      <main className="home-content">
+        <h2>Explora el Mundo de los Gatos Persas</h2>
+        <p>
+          Este blog está dedicado a los amantes de los gatos persas. Aquí
+          descubrirás todo sobre sus características, alimentación, salud
+          y comportamiento.
+        </p>
 
-      <ul>
-        <li>Caracteristicas</li>
-        <li>Cuidado y Mantenimiento</li>
-        <li>Personalidad y Comportamiento</li>
-        <li>Alimentación</li>
-        <li>Imágenes de nuestros gatos persas</li>
-        <li>Productos imprescindibles</li>
-      </ul>
+        <ul>
+          <li>✨ Características</li>
+          <li>🧴 Cuidado y mantenimiento</li>
+          <li>💜 Personalidad y comportamiento</li>
+          <li>🍗 Alimentación</li>
+          <li>📸 Galería</li>
+          <li>🛍️ Productos imprescindibles</li>
+        </ul>
 
-      <p>
-        Esperamos que disfrutes de este blog y que encuentres información útil, consejos y curiosidades para conocer mejor a estos felinos. ¡Acompáñanos en esta aventura para descubrir más sobre estos nobles y encantadores gatos persas!
-      </p>
+        <button className="cta-button">Descubre más</button>
+      </main>
+
+      <footer className="home-footer">
+        <p>© 2025 Persian World — Todos los derechos reservados 🐾</p>
+      </footer>
     </div>
   );
 }
 
-export default Home;  // Asegúrate de exportar el componente como default
-
+export default Home;

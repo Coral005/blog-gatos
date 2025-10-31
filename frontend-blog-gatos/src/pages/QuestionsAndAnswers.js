@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './QuestionsAndAnswers.css';
 
 const QuestionsAndAnswers = () => {
-  const [openIndex, setOpenIndex] = useState(null); // Para manejar qué pregunta está abierta
+  const [openIndex, setOpenIndex] = useState(null);
   const [questions, setQuestions] = useState([
     {
       question: "¿Cómo cuidar a un gato persa?",
@@ -10,7 +10,7 @@ const QuestionsAndAnswers = () => {
     },
     {
       question: "¿Qué alimentar a un gato persa?",
-      answer: "Los gatos persas deben comer alimentos balanceados, un pienso que contenga las suficientes proteínas y también comida blanda."
+      answer: "Los gatos persas deben comer alimentos balanceados, un pienso que contenga suficientes proteínas y también comida blanda."
     },
     {
       question: "¿Cuánto vive un gato persa?",
@@ -18,79 +18,83 @@ const QuestionsAndAnswers = () => {
     },
   ]);
 
-  const [newQuestion, setNewQuestion] = useState(''); // Para nueva pregunta
-  const [newAnswer, setNewAnswer] = useState('');     // Para nueva respuesta
+  const [newQuestion, setNewQuestion] = useState('');
+  const [newAnswer, setNewAnswer] = useState('');
 
-  // Abre o cierra la pregunta seleccionada
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Agrega una nueva pregunta SIN respuesta
   const handleAddQuestion = () => {
-    if (newQuestion) {
+    if (newQuestion.trim()) {
       setQuestions([...questions, { question: newQuestion, answer: "" }]);
       setNewQuestion('');
     }
   };
 
-  // Agrega una respuesta a una pregunta existente
   const handleAddAnswer = (index) => {
-    if (newAnswer) {
-      const updatedQuestions = questions.map((item, i) => {
-        if (i === index) {
-          return { ...item, answer: newAnswer }; // Agrega la respuesta a la pregunta
-        }
-        return item;
-      });
+    if (newAnswer.trim()) {
+      const updatedQuestions = questions.map((item, i) =>
+        i === index ? { ...item, answer: newAnswer } : item
+      );
       setQuestions(updatedQuestions);
       setNewAnswer('');
-      setOpenIndex(null); // Cierra la pregunta después de responder
+      setOpenIndex(null);
     }
   };
 
   return (
-    <div className="questions-container">
-      <h1>Preguntas Frecuentes</h1>
-
-      {questions.map((item, index) => (
-        <div key={index} className="question-item">
-          <button
-            className="question"
-            onClick={() => handleToggle(index)} // Despliega o oculta la respuesta
-          >
-            {item.question}
-          </button>
-
-          <div className={`answer ${openIndex === index ? 'open' : ''}`}>
-            {item.answer ? (
-              <p>{item.answer}</p>
-            ) : (
-              // Si no hay respuesta, muestra el formulario para agregar una
-              openIndex === index && (
-                <div>
-                  <textarea
-                    placeholder="Escribe tu respuesta aquí..."
-                    value={newAnswer}
-                    onChange={(e) => setNewAnswer(e.target.value)}
-                  />
-                  <button onClick={() => handleAddAnswer(index)}>Agregar Respuesta</button>
-                </div>
-              )
-            )}
-          </div>
+    <div className="faq-page">
+      {/* 🌈 HEADER */}
+      <header className="faq-header">
+        <div className="overlay">
+          <h1>❓ Preguntas Frecuentes</h1>
+          <p>
+            Encuentra respuestas a las dudas más comunes sobre el cuidado y la alimentación
+            de los gatos persas. También puedes añadir tus propias preguntas.
+          </p>
         </div>
-      ))}
+      </header>
 
-      <div className="add-question-section">
-        <h2>Agrega tu propia pregunta</h2>
-        <input
-          type="text"
-          placeholder="Escribe tu pregunta..."
-          value={newQuestion}
-          onChange={(e) => setNewQuestion(e.target.value)}
-        />
-        <button onClick={handleAddQuestion}>Agregar Pregunta</button>
+      {/* 💬 SECCIÓN DE PREGUNTAS */}
+      <div className="faq-container">
+        {questions.map((item, index) => (
+          <div key={index} className={`faq-item ${openIndex === index ? 'open' : ''}`}>
+            <button className="faq-question" onClick={() => handleToggle(index)}>
+              {item.question}
+              <span className="arrow">{openIndex === index ? '▲' : '▼'}</span>
+            </button>
+
+            <div className="faq-answer">
+              {item.answer ? (
+                <p>{item.answer}</p>
+              ) : (
+                openIndex === index && (
+                  <div className="answer-form">
+                    <textarea
+                      placeholder="Escribe tu respuesta aquí..."
+                      value={newAnswer}
+                      onChange={(e) => setNewAnswer(e.target.value)}
+                    />
+                    <button onClick={() => handleAddAnswer(index)}>Agregar Respuesta</button>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        ))}
+
+        {/* ✍️ Añadir nueva pregunta */}
+        <div className="add-question">
+          <h2>Agrega tu propia pregunta</h2>
+          <input
+            type="text"
+            placeholder="Escribe tu pregunta..."
+            value={newQuestion}
+            onChange={(e) => setNewQuestion(e.target.value)}
+          />
+          <button onClick={handleAddQuestion}>Agregar Pregunta</button>
+        </div>
       </div>
     </div>
   );

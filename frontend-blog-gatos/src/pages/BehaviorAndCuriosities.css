@@ -1,33 +1,126 @@
+/* 🌸 Estilos generales */
 .behavior-curiosities-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #faf8ff 0%, #f3f0ff 100%);
+  color: #333;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* 🌈 HEADER elegante */
+.behavior-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.behavior-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.behavior-header .overlay {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.behavior-header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffe082; /* dorado suave */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.behavior-header p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* 🐾 CONTENIDO principal */
+.behavior-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.behavior-section h2 {
+  color: #6a11cb;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.behavior-section p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+}
+
+/* 🌟 Lista de curiosidades */
+.curiosities ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.curiosities li {
+  background: #ffffff;
+  border-left: 5px solid #6a11cb;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 15px 20px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.curiosities li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(106, 17, 203, 0.2);
+  background: #f9f9ff;
+}
+
+/* 🐾 FOOTER */
+.behavior-footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+  margin-top: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .behavior-header h1 {
     font-size: 2rem;
-    color: #6200ea;
   }
-  
-  p {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
+
+  .behavior-content {
+    padding: 20px;
   }
-  
-  h2 {
-    font-size: 1.5rem;
-    color: #6200ea;
-    margin-top: 20px;
+
+  .curiosities ul {
+    grid-template-columns: 1fr;
   }
-  
-  ul {
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-  
-  ul li {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-  }
-  
+}

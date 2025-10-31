@@ -1,0 +1,130 @@
+.feeding-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #faf8ff 0%, #f3f0ff 100%);
+  color: #333;
+  padding-bottom: 50px;
+}
+
+/* 🌈 Header */
+.feeding-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feeding-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.feeding-header .overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.feeding-header h1 {
+  font-size: 2.8rem;
+  color: #ffe082;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 15px;
+}
+
+.feeding-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 📦 Contenido */
+.feeding-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.feeding-content h2 {
+  color: #6a11cb;
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.feeding-content p {
+  color: #444;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* 🐾 Productos */
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(106, 17, 203, 0.25);
+}
+
+.product-card img {
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-card h4 {
+  color: #6a11cb;
+  margin-bottom: 10px;
+}
+
+.product-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.product-card a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .feeding-header h1 {
+    font-size: 2rem;
+  }
+
+  .product-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+}

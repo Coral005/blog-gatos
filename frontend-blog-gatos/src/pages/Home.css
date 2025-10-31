@@ -1,108 +1,97 @@
-/* Estilos exclusivos para la página Home */
-.home-page .home-container {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f7f7f7;  /* Fondo suave */
-    color: #333; /* Color del texto */
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Estilos para el encabezado de la página Home */
-  .home-page .home-header {
-    background: linear-gradient(135deg, #6200ea, #3700b3); /* Fondo degradado */
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  /* Ajuste del tamaño del encabezado */
-  .home-page .home-header h1 {
-    font-size: 2.5rem;  /* Reducido el tamaño */
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  /* Reducir el espacio entre las líneas de los párrafos */
-  .home-page .home-header p {
-    font-size: 0.9rem;  /* Tamaño más pequeño */
-    line-height: 1.0;  /* Muy poco espacio entre las líneas */
-    margin-top: 5px;    /* Reducir el margen superior */
-  }
-  
-  /* Sección principal de contenido */
-  .home-page .home-content {
-    margin: 20px auto;  /* Reducido el margen */
-    text-align: center;
-    max-width: 800px;
-    background-color: #fff; /* Fondo blanco para la sección */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Títulos dentro de la sección de contenido */
-  .home-page .home-content h2 {
-    color: #6200ea; /* Títulos en morado */
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  /* Reducir el margen entre los párrafos */
-  .home-page .home-content p {
-    font-size: 1.1rem;
-    line-height: 1.2; /* Reducir el espaciado entre líneas */
-    margin-bottom: 15px; /* Reducir el margen entre párrafos */
-  }
-  
-  /* Estilos para el botón de llamada a la acción */
-  .home-page .cta-button {
-    background-color: #6200ea;
-    color: white;
-    padding: 10px 20px;  /* Ajustar el tamaño del botón */
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px;  /* Añadir espacio entre el botón y el texto */
-  }
-  
-  .home-page .cta-button:hover {
-    background-color: #3700b3;
-    transform: scale(1.05);
-  }
-  
-  /* Pie de página */
-  .home-page .home-footer {
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 30px;
-    color: #888;
-  }
-  
-  .home-page .home-footer p {
-    margin: 0;
-  }
-  
-  /* Media Query para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .home-page .home-header h1 {
-      font-size: 2rem; /* Reducir tamaño de texto en el encabezado */
-    }
-  
-    .home-page .cta-button {
-      padding: 8px 15px;  /* Hacer el botón más pequeño en pantallas pequeñas */
-      font-size: 0.9rem;
-    }
-  
-    .home-page .home-content {
-      padding: 15px;  /* Reducir padding en pantallas pequeñas */
-    }
-  }
-  
+/* 🌈 Header visual y legible */
+.home-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.home-header .overlay {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.home-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.home-header h1 span {
+  color: #ffe082; /* Dorado suave para destacar */
+}
+
+.home-header p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ✨ Sección principal */
+.home-content {
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.home-content h2 {
+  color: #6a11cb;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home-content p {
+  color: #444;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* 🐾 Lista con íconos */
+.home-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.home-content ul li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* 💜 Botón */
+.cta-button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+/* ⚡ Footer */
+.home-footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  padding: 20px;
+}

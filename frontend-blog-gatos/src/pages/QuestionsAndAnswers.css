@@ -1,114 +1,196 @@
-.questions-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+/* 🌸 ESTRUCTURA GENERAL */
+.faq-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #faf8ff 0%, #f3f0ff 100%);
+  min-height: 100vh;
+  color: #333;
 }
 
-.question-item {
-  margin-bottom: 15px;
-  background-color: #f0f0f5;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* 🌈 HEADER */
+.faq-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.question {
+.faq-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.faq-header .overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-header h1 {
+  font-size: 2.6rem;
+  color: #ffe082;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+}
+
+.faq-header p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* 💬 CONTENEDOR DE PREGUNTAS */
+.faq-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 📦 CADA PREGUNTA */
+.faq-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.open {
+  border-left: 5px solid #6a11cb;
+  transform: translateY(-3px);
+}
+
+/* 🟣 BOTÓN DE PREGUNTA */
+.faq-question {
   width: 100%;
   text-align: left;
-  padding: 12px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: #6200ea;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #f5f1ff;
+}
+
+.arrow {
+  font-size: 1rem;
+  color: #6a11cb;
+}
+
+/* ✨ RESPUESTA */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0 22px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 15px 22px 25px;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 📝 FORMULARIO PARA NUEVA RESPUESTA */
+.answer-form textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.answer-form button {
+  background: #6a11cb;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
+  padding: 8px 16px;
   cursor: pointer;
-  display: block;
-  margin: 0;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
-.question:hover {
-  background-color: #3700b3;
+.answer-form button:hover {
+  background: #2575fc;
 }
 
-.answer {
-  padding: 10px;
-  background-color: #e8e8e8;
-  border-radius: 5px;
-  margin-top: 10px;
-  font-size: 1rem;
-  height: 0; /* Inicialmente la respuesta está colapsada */
-  overflow: hidden; /* Oculta el contenido que no está visible */
-  transition: height 0.3s ease-out; /* Transición suave cuando se despliega o colapsa */
+/* ➕ NUEVA PREGUNTA */
+.add-question {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
 }
 
-/* Cuando la respuesta está abierta, se ajusta la altura */
-.answer.open {
-  height: auto; /* La altura se ajusta automáticamente */
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/* Opcional: Si quieres un estilo para la respuesta */
-.answer p {
-  margin: 0;
-  color: #333;
-}
-
-.add-question-section {
-  margin-top: 30px;
-  padding: 20px;
-  border-top: 2px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.add-question-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.add-question-section input,
-.add-question-section textarea {
-  width: 100%;
+.add-question h2 {
+  color: #6a11cb;
   margin-bottom: 15px;
-  padding: 12px;
+}
+
+.add-question input {
+  width: 80%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  margin-bottom: 10px;
   font-size: 1rem;
-  font-family: 'Arial', sans-serif;
-  box-sizing: border-box;
-  transition: border-color 0.3s;
 }
 
-.add-question-section input:focus,
-.add-question-section textarea:focus {
-  border-color: #6200ea;
-  outline: none;
-}
-
-.add-question-section textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.add-question-section button {
-  padding: 12px 20px;
-  background-color: #6200ea;
+.add-question button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  font-size: 1rem;
-  font-family: 'Arial', sans-serif;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.add-question-section button:hover {
-  background-color: #3700b3;
+.add-question button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
 }
 
-.add-question-section button:active {
-  background-color: #2c0059;
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .faq-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .faq-container {
+    padding: 0 10px;
+  }
+
+  .add-question input {
+    width: 100%;
+  }
 }

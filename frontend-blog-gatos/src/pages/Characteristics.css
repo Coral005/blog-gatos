@@ -1,0 +1,109 @@
+.characteristics-page {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #faf8ff 0%, #f3f0ff 100%);
+  color: #2e2e2e;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* 🌈 Header con contraste y overlay */
+.characteristics-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+}
+
+.characteristics-header .overlay {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  border-radius: 16px;
+  display: inline-block;
+  max-width: 900px;
+}
+
+.characteristics-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.characteristics-header p {
+  font-size: 1.1rem;
+  color: #f5f5f5;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 🐾 Secciones principales */
+.characteristics-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* 📦 Tarjetas con efecto */
+.feature-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #6a11cb;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(37, 117, 252, 0.15);
+}
+
+/* 🐱 Títulos dentro de las tarjetas */
+.feature-card h2 {
+  color: #6a11cb;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ⚡ Pie de página */
+.characteristics-footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+  margin-top: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .characteristics-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .feature-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .feature-card p {
+    font-size: 1rem;
+  }
+}
